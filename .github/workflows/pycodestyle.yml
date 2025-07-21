@@ -1,0 +1,14 @@
+name: pycodestyle check
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install pycodestyle
+        run: pip install pycodestyle
+      - name: Run pycodestyle
+        run: |
+          # Intentionally fail if any style errors
+          pycodestyle .
